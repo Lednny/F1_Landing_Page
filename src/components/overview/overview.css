@@ -1,0 +1,39 @@
+.overview-bg {
+    display: flex;
+    min-height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80'); /* Cambia esta URL por la que quieras */
+    background-size: cover;
+    background-position: center;
+}
+
+.Sidebar {
+    width: 250px;
+    background: rgba(30, 30, 30, 0.95);
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.Sidebar nav a {
+    display: block;
+    color: #fff;
+    margin-bottom: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.Sidebar nav a:hover {
+    color: #ff9800;
+}
+
+.overview-content {
+    flex: 1;
+    padding: 40px;
+    color: #fff;
+    background: rgba(0,0,0,0.3); /* Opcional: para mejorar la legibilidad del texto */
+}
