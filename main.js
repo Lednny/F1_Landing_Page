@@ -9,25 +9,33 @@ const routes = {
     'dinamicas-carreras': 'src/components/dinamicas-carreras/dinamicas-carreras.html'
 };
 
-
-//Esta función carga el componente que se está solicitando, que en este caso sería el que se encuentra en la ruta del hash de la URL, "Overview" por defecto, que sería el menú principal al cargar el sitio web.
 function loadComponent(route) {
     const path = routes[route] || routes['overview'];
     fetch(path)
         .then(res => res.text())
         .then(html => {
             document.getElementById('main-content').innerHTML = html;
+
+            // Cargar el JS correspondiente si existe
+            const scriptPath = path.replace('.html', '.js');
+            fetch(scriptPath, {method: 'HEAD'})
+                .then(res => {
+                    if (res.ok) {
+                        const script = document.createElement('script');
+                        script.src = scriptPath;
+                        document.body.appendChild(script);
+                    }
+                });
         });
 }
 
-// Está función cambia la ruta por defecto a "overview" si no se encuentra una ruta válida en el hash de la URL.
 function handleRoute() {
     let route = location.hash.replace('#', '');
     if (!route || !routes[route]) {
         route = 'overview';
         if (location.hash !== '#overview') {
             window.location.hash = '#overview';
-            return; 
+            return;
         }
     }
     loadComponent(route);
@@ -35,3 +43,5 @@ function handleRoute() {
 
 window.addEventListener('hashchange', handleRoute);
 window.addEventListener('DOMContentLoaded', handleRoute);
+
+
