@@ -65,3 +65,7 @@ document.addEventListener('click', (event) => {
 //------------------------------------------------------------------------
 // FUNCIÓN PARA REDIRIJIR AL OVERVIEW AL HACER CLICK EN F1
 
+const f1Button = document.querySelector('.logo-f1');
+f1Button.addEventListener('click', () => {
+    window.location.href = '/overview';
+});

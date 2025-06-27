@@ -1,10 +1,12 @@
 <div class="overview-bg">
   <header class="overview-header">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" class="logo-f1" alt="F1 Logo">
-    <div class="weather-widget">🌤️</div>
-    <div class="clock-widget">08:45</div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" class="logo-f1" alt="F1 Logo" onclick="loadMainContent('src/components/overview/overview.html')">
+<div class="header-center">
+    <div class="weather-widget"></div>
+    <div class="clock-widget"></div>
+</div>
     <div class="icons-right">
-      <button class="notif-icon">
+      <button class="notif-icon" onclick="showNotifications()">
     <img src="src/assets/icons/notif-icon.png" class="notif-icon">
   </button>
       <button class="user-icon">
