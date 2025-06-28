@@ -1,0 +1,218 @@
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.dinamicas-bg {
+    background-image: url('../../assets/img/imagenF2.webp');
+    position: relative;
+    overflow: hidden;
+}
+
+.dinamicas-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: 200px;
+    background-attachment: fixed;
+    filter: blur(5px); 
+    z-index: 0;
+    pointer-events: none;
+}
+
+.dinamicas-bg > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+.dinamicas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 10px;
+}
+
+.weather-widget,
+.clock-widget {
+    display: flex;
+    margin: 0;         
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;          
+}
+
+.clock-widget {
+    display: center;
+    align-items: center;
+    margin: 30px;
+    margin-right: auto;
+    font-size: 20px;
+}
+
+/* Estructura principal horizontal */
+.dinamicas-body {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Sidebar alineado vertical */
+.Sidebar {
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px 10px;
+    min-height: calc(100vh - 70px); /* Header height */
+    box-sizing: border-box;
+}
+
+/* Lista */
+.Sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Sidebar ul li {
+    margin: 100px 30px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.Sidebar ul li:hover {
+    transform: translateX(10px);
+}
+
+.Sidebar ul li a {
+    border-radius: 25px;
+    border: 2px solid #ffffff;
+    padding: 20px;
+    width: auto;
+    height: auto;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+    white-space: normal;
+}
+
+.carreras-btn {
+    display: inline-block;
+    border-radius: 25px;
+    border: 2px solid #ffffff;
+    padding: 12px 18px;
+    width: auto;
+    height: auto;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    white-space: normal;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 5px;
+}
+
+.dinamicas-btn {
+    display: inline-block;
+    border-radius: 25px;
+    border: 2px solid #ffffff;
+    padding: 12px 18px;
+    width: auto;
+    height: auto;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    white-space: normal;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 -8px;
+    margin-top: -40px;
+    margin-bottom: -40px;
+}
+
+.Sidebar ul li a:hover {
+    color: red;
+}
+
+/* Contenido principal */
+.dinamicas-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Logo */
+.logo-f1 {
+    width: 100px;
+    margin-left: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-right: 450px;
+}
+
+.logo-f1:hover {
+    transform: scale(1.1);
+}
+
+/* Iconos */
+.icons-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 30px;
+    border: none;
+    flex-shrink: 0;
+}
+
+.notif-icon {
+    width: 40px;
+    height: 40px;
+    background-color: transparent !important;
+    cursor: pointer;
+    transition: color 0.3s;
+    border: none;
+    transition: all 0.3s;
+}
+
+.notif-icon:hover {
+    transform: matrix(1, 0, 0, 1, 0, -5);
+}
+    
+.user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: transparent !important;
+    cursor: pointer;
+    transition: color 0.3s;
+    border: none;
+    transition: all 0.3s;
+}
+
+.user-icon:hover {
+    transform: matrix(1, 0, 0, 1, 0, -5);
+}

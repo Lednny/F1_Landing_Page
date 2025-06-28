@@ -1,4 +1,4 @@
-* {
+    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,16 +10,32 @@ html, body {
     overflow-x: hidden;
 }
 
-.overview-bg {
-    background-image: url('../../assets/img/imagenF1.avif');
+.pilotos-bg {
+    background-image: url('../../assets/img/');
+    position: relative;
+    overflow: hidden;
+}
+
+.pilotos-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
     background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    color: white;
+    background-position: 200px;
+    background-attachment: fixed;
+    filter: blur(6px); 
+    z-index: 0;
+    pointer-events: none;
+}
+
+.pilotos-bg > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* Header */
-.overview-header {
+.pilotos-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,7 +53,7 @@ html, body {
     align-items: center;
     justify-content: center;
     flex: 1;
-    gap: 40px;
+    gap: 10px;
 }
 
 .weather-widget,
@@ -47,7 +63,7 @@ html, body {
     font-size: 20px;
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 5px;          
 }
 
 .clock-widget {
@@ -59,7 +75,7 @@ html, body {
 }
 
 /* Estructura principal horizontal */
-.overview-body {
+.pilotos-body {
     display: flex;
     flex-direction: row;
 }
@@ -144,7 +160,7 @@ html, body {
 }
 
 /* Contenido principal */
-.overview-content {
+.pilotos-content {
     flex-grow: 1;
     padding: 20px;
 }
@@ -156,7 +172,7 @@ html, body {
     cursor: pointer;
     transition: transform 0.3s;
     flex-shrink: 0;
-    margin-right: 480px;
+    margin-right: 450px;
 }
 
 .logo-f1:hover {

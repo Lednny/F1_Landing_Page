@@ -2,7 +2,7 @@
 //FUNCIÓN PARA NOSTRAR EL ESTADO DEL TIEMPO ACTUAL CON API KEY
 
 (function(){
-  const weatherWidget = document.querySelector('.weather-widget');
+  const weatherWidget = document.querySelector('.weather-widget-1');
   if (!weatherWidget) return;
 
   if (navigator.geolocation) {
@@ -30,42 +30,33 @@
   } else {
     weatherWidget.textContent = 'Geolocalización no soportada';
   }     
-})();
 
-//------------------------------------------------------------------------
-
-// FUNCIÓN PARA MOSTRAR LA HORA ACTUAL EN UN WIDGET
-
-const clock = document.querySelector('.clock-widget');
-function updateClock() {
+    // Reloj
+  const clock = document.querySelector('.clock-widget-1');
+  function updateClock() {
+    if (!clock) return;
     const now = new Date();
     const horas = now.getHours().toString().padStart(2, '0');
     const minutos = now.getMinutes().toString().padStart(2, '0');
     clock.textContent = `${horas}:${minutos}`;
-    }
-setInterval(updateClock, 1000);
-updateClock(); // Llamar una vez para mostrar la hora inmediatamente
+  }
+  if (clock) {
+    setInterval(updateClock, 1000);
+    updateClock();
+  }
 
-//------------------------------------------------------------------------
-
-//FUNCIÓN PARA MOSTRAR DROPDOWN DE BOTÓN NOTIFICACIONES
-const notificationButton = document.querySelector('.notif-icon');
-const notificationDropdown = document.querySelector('.notific-icon-dropdown');
-notificationButton.addEventListener('click', () => {
-    notificationDropdown.classList.toggle('show');
-});
-// Cerrar el dropdown si se hace clic fuera de él
-document.addEventListener('click', (event) => {
-    if (!notificationButton.contains(event.target) && !notificationDropdown.contains(event.target)) {
+  // Notificaciones
+  const notificationButton = document.querySelector('.notif-btn');
+  const notificationDropdown = document.querySelector('.notific-icon-dropdown');
+  if (notificationButton && notificationDropdown) {
+    notificationButton.addEventListener('click', () => {
+      notificationDropdown.classList.toggle('show');
+    });
+    document.addEventListener('click', (event) => {
+      if (!notificationButton.contains(event.target) && !notificationDropdown.contains(event.target)) {
         notificationDropdown.classList.remove('show');
-    }
-});
+      }
+    });
+  }
+})();
 
-
-//------------------------------------------------------------------------
-// FUNCIÓN PARA REDIRIJIR AL OVERVIEW AL HACER CLICK EN F1
-
-const f1Button = document.querySelector('.logo-f1');
-f1Button.addEventListener('click', () => {
-    window.location.href = '/overview';
-});

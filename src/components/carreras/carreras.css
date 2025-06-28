@@ -10,7 +10,7 @@ html, body {
     overflow-x: hidden;
 }
 
-.overview-bg {
+.carreras-bg {
     background-image: url('../../assets/img/carreras.png');
     background-size: cover;
     background-position: center;
@@ -19,7 +19,7 @@ html, body {
 }
 
 /* Header */
-.overview-header {
+.carreras-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,7 +59,7 @@ html, body {
 }
 
 /* Estructura principal horizontal */
-.overview-body {
+.carreras-body {
     display: flex;
     flex-direction: row;
 }
@@ -144,7 +144,7 @@ html, body {
 }
 
 /* Contenido principal */
-.overview-content {
+.carreras-content {
     flex-grow: 1;
     padding: 20px;
 }
