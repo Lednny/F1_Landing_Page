@@ -1,0 +1,517 @@
+/* Reset Universal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Background base para todas las páginas */
+.overview-bg{
+    background-image: url('/src/assets/img/imagenF1.avif');
+    position: relative;
+    overflow: hidden;
+    height: 100vh; 
+    width: 100%;
+}
+.carreras-bg{
+    background-image: url('/src/assets/img/carreras.png');
+    position: relative;
+    overflow: hidden;
+    height: 100vh; 
+    width: 100%;
+}
+.dinamicas-bg{
+    background-image: url('/src/assets/img/imagenF2.webp');
+    position: relative;
+    overflow: hidden;
+    height: 100vh; 
+    width: 100%;
+}
+.equipos-bg{
+    background-image: url('/src/assets/img/imagenF3.webp');
+    position: relative;
+    overflow: hidden;
+    height: 100vh; 
+    width: 100%;
+}
+.historia-bg{
+    background-image: url('/src/assets/img/carreras.png');
+    position: relative;
+    overflow: hidden;
+    height: 100vh; 
+    width: 100%;
+}
+.pilotos-bg {
+    background-image: url('/src/assets/img/imagernF5.jpg');
+    position: relative;
+    overflow: hidden;
+    height: 100vh; 
+    width: 100%;
+}
+
+.overview-bg::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+    pointer-events: none;
+}
+.carreras-bg::before,
+.dinamicas-bg::before,
+.equipos-bg::before,
+.historia-bg::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+    pointer-events: none;
+}
+.pilotos-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.overview-bg > *,
+.carreras-bg > *,
+.dinamicas-bg > *,
+.equipos-bg > *,
+.historia-bg > *,
+.pilotos-bg > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header universal */
+.overview-header,
+.carreras-header,
+.dinamicas-header,
+.equipos-header,
+.historia-header,
+.pilotos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    width: 100%;
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 10px;
+}
+
+.weather-widget,
+.clock-widget {
+    display: flex;
+    margin: 0;
+    font-size: 20px;
+    align-items: center;
+    gap: 5px;
+    color: white;
+}
+
+.clock-widget {
+    margin: 10px;
+    margin-right: auto;
+}
+
+.weather-widget{
+    margin-left: 380px;
+}
+
+/* Body universal - CORREGIDO */
+.overview-body,
+.carreras-body,
+.dinamicas-body,
+.equipos-body,
+.historia-body,
+.pilotos-body {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 70px); /* Altura fija en lugar de min-height */
+    width: 100%;
+    position: relative;
+    overflow: hidden; /* Previene scroll innecesario */
+}
+
+/* Sidebar universal - CORREGIDO */
+.Sidebar,
+.Sidebar-overview,
+.Sidebar-carreras,
+.Sidebar-dinamicas,
+.Sidebar-equipos,
+.Sidebar-historia,
+.Sidebar-pilotos {
+    width: 200px;
+    min-width: 200px; /* Evita que se comprima */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px 10px;
+    height: calc(100vh - 70px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 70px;
+    overflow-y: auto;
+}
+
+/* Lista universal */
+.Sidebar ul,
+.Sidebar-overview ul,
+.Sidebar-carreras ul,
+.Sidebar-dinamicas ul,
+.Sidebar-equipos ul,
+.Sidebar-historia ul,
+.Sidebar-pilotos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+}
+
+.Sidebar ul li,
+.Sidebar-overview ul li,
+.Sidebar-carreras ul li,
+.Sidebar-dinamicas ul li,
+.Sidebar-equipos ul li,
+.Sidebar-historia ul li,
+.Sidebar-pilotos ul li {
+    margin: 0;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.Sidebar ul li:hover,
+.Sidebar-overview ul li:hover,
+.Sidebar-carreras ul li:hover,
+.Sidebar-dinamicas ul li:hover,
+.Sidebar-equipos ul li:hover,
+.Sidebar-historia ul li:hover,
+.Sidebar-pilotos ul li:hover {
+    transform: translateX(5px); /* Reducido para evitar desbordamiento */
+}
+
+/* Enlaces universales */
+.Sidebar ul li a,
+.Sidebar-overview ul li a,
+.Sidebar-carreras ul li a,
+.Sidebar-dinamicas ul li a,
+.Sidebar-equipos ul li a,
+.Sidebar-historia ul li a,
+.Sidebar-pilotos ul li a,
+.carreras-btn,
+.dinamicas-btn,
+.equipos-btn,
+.historia-btn,
+.pilotos-btn {
+    display: inline-block;
+    border-radius: 25px;
+    border: 2px solid #ffffff;
+    padding: 10px 12px; /* Reducido más para textos largos */
+    width: 100%;
+    max-width: 175px; /* Aumentado para acomodar texto largo */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    font-size: 12px; /* Más pequeño para que quepa mejor */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Sidebar ul li a:hover,
+.Sidebar-overview ul li a:hover,
+.Sidebar-carreras ul li a:hover,
+.Sidebar-dinamicas ul li a:hover,
+.Sidebar-equipos ul li a:hover,
+.Sidebar-historia ul li a:hover,
+.Sidebar-pilotos ul li a:hover,
+.carreras-btn:hover,
+.dinamicas-btn:hover,
+.equipos-btn:hover,
+.historia-btn:hover,
+.pilotos-btn:hover {
+    color: #ff1e1e;
+    border-color: #ff1e1e;
+    background-color: rgba(255, 30, 30, 0.1);
+    transform: scale(1.02); /* Reducido para evitar desbordamiento */
+}
+
+/* Contenido principal universal - CORREGIDO */
+.overview-content,
+.carreras-content,
+.dinamicas-content,
+.equipos-content,
+.historia-content,
+.pilotos-content {
+    flex: 1; /* Ocupa todo el espacio restante */
+    padding: 20px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05); /* Sutil background para distinguir */
+    backdrop-filter: blur(5px);
+    margin: 0; /* Elimina todos los márgenes */
+    box-sizing: border-box;
+    /* Limita el scroll solo cuando hay contenido */
+    max-height: calc(100vh - 70px);
+}
+
+/* Solución para contenido vacío - evita scroll infinito */
+.overview-content:empty,
+.carreras-content:empty,
+.dinamicas-content:empty,
+.equipos-content:empty,
+.historia-content:empty,
+.pilotos-content:empty {
+    overflow: hidden;
+}
+
+/* Placeholder para contenido vacío */
+.overview-content:empty::before,
+.carreras-content:empty::before,
+.dinamicas-content:empty::before,
+.equipos-content:empty::before,
+.historia-content:empty::before,
+.pilotos-content:empty::before {
+    content: "Contenido próximamente...";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+/* Logo universal */
+.logo-f1 {
+    width: 100px;
+    height: auto;
+    margin-left: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-right: auto;
+}
+
+.logo-f1:hover {
+    transform: scale(1.1);
+}
+
+/* Iconos universales */
+.icons-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+.notif-icon,
+.user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: transparent !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notif-icon:hover,
+.user-icon:hover {
+    transform: translateY(-5px);
+    color: #ff1e1e;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+    .Sidebar,
+    .Sidebar-overview,
+    .Sidebar-carreras,
+    .Sidebar-dinamicas,
+    .Sidebar-equipos,
+    .Sidebar-historia,
+    .Sidebar-pilotos {
+        width: 180px;
+        min-width: 180px;
+    }
+    
+    .Sidebar ul li a,
+    .Sidebar-overview ul li a,
+    .Sidebar-carreras ul li a,
+    .Sidebar-dinamicas ul li a,
+    .Sidebar-equipos ul li a,
+    .Sidebar-historia ul li a,
+    .Sidebar-pilotos ul li a {
+        font-size: 12px;
+        padding: 10px 12px;
+        max-width: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Sidebar,
+    .Sidebar-overview,
+    .Sidebar-carreras,
+    .Sidebar-dinamicas,
+    .Sidebar-equipos,
+    .Sidebar-historia,
+    .Sidebar-pilotos {
+        width: 150px;
+        min-width: 150px;
+    }
+    
+    .logo-f1 {
+        width: 80px;
+        margin-left: 10px;
+    }
+    
+    .overview-header,
+    .carreras-header,
+    .dinamicas-header,
+    .equipos-header,
+    .historia-header,
+    .pilotos-header {
+        padding: 10px;
+    }
+    
+    .weather-widget,
+    .clock-widget {
+        font-size: 16px;
+    }
+    
+    .Sidebar ul,
+    .Sidebar-overview ul,
+    .Sidebar-carreras ul,
+    .Sidebar-dinamicas ul,
+    .Sidebar-equipos ul,
+    .Sidebar-historia ul,
+    .Sidebar-pilotos ul {
+        gap: 30px;
+    }
+    
+    .Sidebar ul li a,
+    .Sidebar-overview ul li a,
+    .Sidebar-carreras ul li a,
+    .Sidebar-dinamicas ul li a,
+    .Sidebar-equipos ul li a,
+    .Sidebar-historia ul li a,
+    .Sidebar-pilotos ul li a {
+        font-size: 11px;
+        padding: 8px 10px;
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .overview-body,
+    .carreras-body,
+    .dinamicas-body,
+    .equipos-body,
+    .historia-body,
+    .pilotos-body {
+        flex-direction: column;
+    }
+    
+    .Sidebar,
+    .Sidebar-overview,
+    .Sidebar-carreras,
+    .Sidebar-dinamicas,
+    .Sidebar-equipos,
+    .Sidebar-historia,
+    .Sidebar-pilotos {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+        position: static;
+    }
+    
+    .Sidebar ul,
+    .Sidebar-overview ul,
+    .Sidebar-carreras ul,
+    .Sidebar-dinamicas ul,
+    .Sidebar-equipos ul,
+    .Sidebar-historia ul,
+    .Sidebar-pilotos ul {
+        flex-direction: row;
+        gap: 10px;
+        overflow-x: auto;
+        justify-content: space-around;
+    }
+    
+    .Sidebar ul li a,
+    .Sidebar-overview ul li a,
+    .Sidebar-carreras ul li a,
+    .Sidebar-dinamicas ul li a,
+    .Sidebar-equipos ul li a,
+    .Sidebar-historia ul li a,
+    .Sidebar-pilotos ul li a {
+        font-size: 10px;
+        padding: 8px 12px;
+        max-width: none;
+        min-width: 80px;
+    }
+    
+    .overview-content,
+    .carreras-content,
+    .dinamicas-content,
+    .equipos-content,
+    .historia-content,
+    .pilotos-content {
+        height: auto;
+        min-height: 60vh;
+    }
+}

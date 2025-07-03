@@ -45,6 +45,68 @@
     updateClock();
   }
 
+
+// FUNCIÓN PARA MOSTRAR A TODOS LOS EQUIPOS POR TEMPORADAS EN SUS RESPECTIVOS AÑOS 
+
+  const selectSeason = document.getElementById("season-select");
+const teamsList = document.getElementById("teams-list");
+const driversList = document.getElementById("drivers-list");
+
+// Cargar años de 1970 a 2025 en el select
+for (let year = 2025; year >= 1970; year--) {
+  const option = document.createElement("option");
+  option.value = year;
+  option.textContent = year;
+  selectSeason.appendChild(option);
+}
+
+// Al cargar la página
+window.addEventListener("DOMContentLoaded", () => {
+  const currentYear = 2025;
+  selectSeason.value = currentYear;
+  loadTeams(currentYear);
+});
+
+// Al cambiar la temporada
+selectSeason.addEventListener("change", () => {
+  const selectedYear = parseInt(selectSeason.value);
+  loadTeams(selectedYear);
+});
+
+// Nueva función usando la API correcta
+function loadTeams(season) {
+  teamsList.innerHTML = "Cargando equipos...";
+  driversList.innerHTML = "";
+
+  fetch("https://f1connectapi.vercel.app/api/teams")
+    .then((res) => res.json())
+    .then((data) => {
+      const filtered = data.teams.filter(team => team.firstAppearance <= season);
+      teamsList.innerHTML = "";
+
+      filtered.forEach(team => {
+        const teamDiv = document.createElement("div");
+        teamDiv.className = "team";
+        teamDiv.innerHTML = `
+          <h4>${team.teamName}</h4>
+          <p>Nacionalidad: ${team.teamNationality}</p>
+          <p>Debut: ${team.firstAppearance}</p>
+          <a href="${team.url}" target="_blank">Más info</a>
+        `;
+        teamsList.appendChild(teamDiv);
+      });
+
+      if (filtered.length === 0) {
+        teamsList.innerHTML = "No hay equipos para esta temporada.";
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      teamsList.innerHTML = "Error al cargar los equipos.";
+    });
+}
+
+
   // Notificaciones
   const notificationButton = document.querySelector('.notif-btn');
   const notificationDropdown = document.querySelector('.notific-icon-dropdown');

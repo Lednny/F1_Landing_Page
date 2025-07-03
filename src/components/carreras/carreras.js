@@ -2,7 +2,7 @@
 //FUNCIÓN PARA NOSTRAR EL ESTADO DEL TIEMPO ACTUAL CON API KEY
 
 (function(){
-  const weatherWidget = document.querySelector('.weather-widget-1');
+  const weatherWidget = document.querySelector('.weather-widget');
   if (!weatherWidget) return;
 
   if (navigator.geolocation) {
@@ -32,7 +32,7 @@
   }     
 
     // Reloj
-  const clock = document.querySelector('.clock-widget-1');
+  const clock = document.querySelector('.clock-widget');
   function updateClock() {
     if (!clock) return;
     const now = new Date();

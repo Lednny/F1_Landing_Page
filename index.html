@@ -1,18 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 World Web</title>
-    <link rel="stylesheet" href="src/components/overview/overview.css">
-    <link rel="stylesheet" href="src/components/carreras/carreras.css">
-    <link rel="stylesheet" href="src/components/dinamicas-carreras/dinamicas-carreras.css">
-    <link rel="stylesheet" href="src/components/equipos/equipos.css">
-    <link rel="stylesheet" href="src/components/historia/historia.css">
-    <link rel="stylesheet" href="src/components/pilotos/pilotos.css">
+    <!-- CSS Global - Reemplaza todos los CSS individuales -->
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!-- Opcional: CSS específico para funcionalidades especiales 
+    <link rel="stylesheet" href="assets/css/components.css"> -->
+    
+    <!-- Preload para mejor performance -->
+    <link rel="preload" href="assets/img/imagenF1.avif" as="image">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/f1-icon.ico" type="image/x-icon">
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="F1 World Web - Información completa sobre Fórmula 1">
+    <meta name="keywords" content="F1, Fórmula 1, carreras, pilotos, equipos">
+    <meta name="author" content="F1 World Web">
 </head>
 <body>
+    <!-- Contenedor principal -->
     <div id="main-content"></div>
+    
+    <!-- Scripts -->
     <script src="main.js"></script>
-</body> 
+</body>
 </html>
